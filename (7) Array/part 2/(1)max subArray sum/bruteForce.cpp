@@ -1,0 +1,32 @@
+#include<iostream>
+#include <climits>
+using namespace std;
+
+int maxSubArraySum(int *arr, int n) { // O(n^3)
+
+    int  maxSubSum = INT_MIN;
+
+    for(int start=0; start < n; start++) { // finding index of starting and ending point
+        for(int end=start; end < n; end++) {
+
+            int currSum = 0; //updating to 0 for nxt subArr sum
+           
+            for(int i=start; i<=end; i++) {
+                // cout << arr[i];
+                currSum  += arr[i]; // calculating subarray sum for each subarray
+            }
+            
+            maxSubSum = max(maxSubSum, currSum); // shrtkt for comparison
+        }
+
+    }
+
+    return maxSubSum;
+}
+
+int main() {
+    int arr[] = {2, -3, 6, -5, 4, 2};
+    int n = sizeof(arr) / sizeof(int);
+
+    cout << maxSubArraySum(arr, n);
+}

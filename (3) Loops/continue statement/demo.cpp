@@ -1,0 +1,14 @@
+// Continue statement skips the code below it where it is declared and continues the flow
+
+#include<iostream>
+using namespace std;
+
+int main() {
+    for(int i=1; i<=10; i++) {
+        if(i == 3) {
+            continue;
+        }
+
+        cout << i << endl;
+    }
+}
